@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<div class="container">
+	<h1>{{username}}, you are welcome!</h1>
+<form action="{{ url_for('index') }}", method="post">
+	<button type="submit", class="btn btn-danger butto">Logout</button>
+</form>
+
+<hr>
+
+<h1>Choose years</h1>
+<form action="{{ url_for('books') }}", method="post">
+  <div class="form-group">
+    <label>From:</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Year" name="from">
+  </div>
+  <div class="form-group">
+    <label>To:</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Year", name="to">
+  </div>
+  <button type="submit", class="btn btn-primary">Submite</button>
+</form>
+</div>
+
+{% endblock %}

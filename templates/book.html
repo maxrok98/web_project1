@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div class="container">
+
+<h1 class="t">API</h1>
+
+
+<h1>{{book.title}}</h1>
+<p><b>ISBN:</b> {{book.isbn}}</p>
+<p class="t"><b>Average rating: </b>{{ data }}</p>
+<p><b>Author:</b> {{book.author}}</p>
+<p class="t"><b>Reviews count: </b>{{ rev }}</p>
+<p><b>Year:</b> {{book.year}}</p>
+
+<hr>
+
+<h1>Reviews:</h1>
+{% if reviews %}
+	{% for review in reviews %}
+		<h3>{{ review.name }}</h3>
+		<p>{{ review.text }}</p>
+	{% endfor %}
+{% else %}
+	<p>There is no reviews</p>
+{% endif %}
+
+<hr>
+
+<form action="{{ url_for('book', book_id=book.isbn) }}" method="post">
+	<h2>Add reviews</h2>
+	<div class="form-group">
+		<input type="text" name="text" placeholder="Put your review" class="form-control">
+	</div>
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+
+{% endblock %}

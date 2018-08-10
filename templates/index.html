@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+
+
+{% block body %}
+<div class="container">
+<div class="row">
+	<div class="col-6 text-center n">
+	<a class="btn btn-outline-primary" href="{{ url_for('login') }}" role="button">Login</a>
+</div>
+<div class="col-6 text-center n">
+	<a class="btn btn-outline-warning" href="{{ url_for('registration') }}" role="button">Registration</a>
+</div>
+</div>
+</div>
+
+{% endblock %}
